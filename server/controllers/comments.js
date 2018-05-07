@@ -6,7 +6,7 @@ module.exports = {
     
     create: (req, res) => {
         const ObjectId = mongoose.Types.ObjectId; 
-        Photo.findOne({_id: new ObjectId(req.body._id)}, (err, item) => {
+        Photo.findOne({_id: new ObjectId(req.params.id)}, (err, item) => {
             if (!err) {
                 const c = new Comment();
                 c.rating = req.body.rating;

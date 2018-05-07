@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'),
         photos = require('../controllers/photos'),
-        comments = required('../controllers/comments');
+        comments = require('../controllers/comments');
 
 module.exports = (app) => {
 

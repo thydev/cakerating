@@ -30,8 +30,8 @@ module.exports = {
     create: (req, res) => {
         let item = new Photo();
         item._id = new mongoose.Types.ObjectId();
-        item.title = req.body.title;
-        item.description = req.body.description;
+        item.author = req.body.author;
+        item.image_url = req.body.image_url;
         item.save( err => {
             if (!err) {
                 res.json({message: "Success", data: item})
@@ -46,9 +46,8 @@ module.exports = {
         var ObjectId = mongoose.Types.ObjectId; 
         Photo.where({_id: new ObjectId(req.params.id)})
             .update({$set: {
-                title: req.body.title,
-                description: req.body.description,
-                completed: req.body.completed
+                author: req.body.author,
+                image_url: req.body.image_url
             }})
             .exec((err, item)=>{
                 if (!err) {
