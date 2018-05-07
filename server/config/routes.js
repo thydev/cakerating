@@ -1,28 +1,31 @@
 const mongoose = require('mongoose'),
-        Task = mongoose.model('Task'),
-        tasks = require('../controllers/tasks');
+        photos = require('../controllers/photos'),
+        comments = required('../controllers/comments');
 
 module.exports = (app) => {
 
-    app.get('/tasks', (req, res) => {
-        tasks.retrieveAll(req, res);
+    app.get('/photos', (req, res) => {
+        photos.retrieveAll(req, res);
     })
 
-    app.get('/tasks/:id', (req, res) => {
-        tasks.retrieveById(req, res);
+    app.get('/photos/:id', (req, res) => {
+        photos.retrieveById(req, res);
     });
 
-    app.post('/tasks', (req, res) => {
-        tasks.create(req, res);
+    app.post('/photos', (req, res) => {
+        photos.create(req, res);
     });
 
-    app.put('/tasks/:id', (req, res) => {
+    app.put('/photos/:id', (req, res) => {
         console.log("request: body", req);
-        tasks.updateById(req, res);
+        photos.updateById(req, res);
     });
 
-    app.delete('/tasks/:id', (req, res)=> {
-        tasks.removeById(req, res);
+    app.delete('/photos/:id', (req, res)=> {
+        photos.removeById(req, res);
     });
 
+    app.post('/comments/:id', (req, res) => {
+        comments.create(req, res);
+    });
 }
