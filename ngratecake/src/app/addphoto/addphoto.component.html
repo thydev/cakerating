@@ -1,0 +1,17 @@
+
+<div>
+  <h3>Submit a cake to be rated</h3>
+  <hr />
+  <p>{{ newPhoto | json }}</p>
+  <form (submit)="onAddPhoto()">
+    <label>
+      Baker name:
+      <input type="text" name="newPhoto.author" [(ngModel)]="newPhoto.author">
+    </label>
+    <label>
+      Image url: 
+      <input type="text" name="newPhoto.image_url" [(ngModel)]="newPhoto.image_url">
+    </label>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
