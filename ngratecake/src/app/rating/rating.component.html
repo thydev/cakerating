@@ -1,18 +1,19 @@
 
 <div class="cake-info">
     <h4>{{thePhoto.author}}</h4>
-    <img src="{{thePhoto.image_url}}" alt="{{thePhoto.author}}" class="cake">
+    <img src="{{thePhoto.image_url}}" alt="{{thePhoto.author}}" class="cake"
+        (click)="onShowDetail($event)">
 </div>
 <div class="rating-input">
     <form (submit)="onRating()">
-        <select name="rating">
+        <select name="newRating.rating" [(ngModel)]="newRating.rating">
             <option value="1">1 Star</option>
             <option value="2">2 Stars</option>
             <option value="3">3 Stars</option>
             <option value="4">4 Stars</option>
             <option value="5">5 Stars</option>
         </select>
-        <textarea name="contents" id="" cols="20" rows="2"></textarea>
+        <textarea name="newRating.contents" [(ngModel)]="newRating.contents" id="" cols="20" rows="2"></textarea>
         <input type="submit" value="Rate" />
     </form>
 </div>

@@ -6,14 +6,13 @@
 </div>
 <app-addphoto (addPhoto)="addPhoto()" [newPhoto]="newPhoto"></app-addphoto>
 <hr />
-<ul>
-  <li *ngFor="let photo of photos">
 
-    {{photo.author}} - 
-    <img src="{{photo.image_url}}" alt="{{photo.author}}" class="cake">
-    
-  </li>
-</ul>
 <div *ngFor="let photo of photos">
-  <app-rating [thePhoto]="photo"></app-rating>
+  <app-rating [thePhoto]="photo" 
+    (addRatingEmitter)="addRating($event)"
+    (showDetailEmitter)="showPhoto($event)" ></app-rating>
+</div>
+
+<div *ngIf="isShowDetail">
+  <app-showdetail [thePhoto]="selectedPhoto" ></app-showdetail>
 </div>

@@ -7,14 +7,28 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
   @Input() thePhoto: any;
-  @Output() ratePhoto = new EventEmitter();
-  
+  @Output() addRatingEmitter = new EventEmitter();
+  @Output() showDetailEmitter = new EventEmitter();
+
+  newRating: any;
+
   constructor() { }
 
   ngOnInit() {
+    this.newRating = {rating: 1, contents: ""}
   }
 
   onRating(){
-
+    this.addRatingEmitter.emit({
+      id: this.thePhoto._id, 
+      aRating: this.newRating
+    });
+    this.newRating = {rating: 1, contents: ""}
   }
+
+  onShowDetail(){
+    console.log("image was clicked")
+    this.showDetailEmitter.emit(this.thePhoto);
+  }
+
 }

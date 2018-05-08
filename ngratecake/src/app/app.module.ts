@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AddphotoComponent } from './addphoto/addphoto.component';
 import { RatingComponent } from './rating/rating.component';
+import { ShowdetailComponent } from './showdetail/showdetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddphotoComponent,
-    RatingComponent
+    RatingComponent,
+    ShowdetailComponent
   ],
   imports: [
     BrowserModule,

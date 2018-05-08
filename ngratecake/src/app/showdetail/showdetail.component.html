@@ -1,0 +1,11 @@
+<div class="cake-info">
+  <h2>{{thePhoto.author}}</h2>
+  <img src="{{thePhoto.image_url}}" alt="{{thePhoto.author}}">
+  <p> {{ thePhoto.avgRating }} </p>
+  <ul>
+    <li *ngFor="let rate of thePhoto.comments">
+      <p>Rating: {{rate.rating}} star(s)</p>
+      <p>{{rate.contents}}</p>
+    </li>
+  </ul>
+</div>
